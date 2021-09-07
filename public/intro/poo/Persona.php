@@ -233,8 +233,27 @@ class Curso2 extends Persona2 {
         echo "el nombre es: ".$b."<br>";
     }
     // Precedencia clase padre, trait, clase hija
-    public function saludo(){
-        echo "Hola Curso2";
+    // public function saludo(){
+    //     echo "Hola Curso2";
+    // }
+
+}
+
+class Curso3 extends Curso2 {
+
+    public $materia,$turno;
+
+    // sobreescribir metodo
+    public function setNombre($a){
+        $this->nombre = $a;
+
+        // extender metodo
+        $b=parent::getNombre();
+        echo "el nombre es: ".$b."<br>";
     }
+    // Precedencia clase padre, trait, clase hija
+    // public function saludo(){
+    //     echo "Hola Curso3";
+    // }
 
 }

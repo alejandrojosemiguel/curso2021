@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
 
     // Test database connection 
-    try { 
-        DB::connection()->getPdo(); 
-    } catch (\Exception $e) {
-        die("Could not connect to the database. Please check your configuration. error:" . $e ); 
-    }
-    
-    return view('welcome');
-});
+    // try { 
+    //     DB::connection()->getPdo(); 
+    // } catch (\Exception $e) {
+    //     die("Could not connect to the database. Please check your configuration. error:" . $e ); 
+    // }
+
+Route::get('/', HomeController::class);
+
+Route::get('cursos', [CursoController::class,'index']);
+
+Route::get('cursos/create',[CursoController::class,'create']);
+
+Route::get('cursos/{curso}',[CursoController::class,'show']);
+
+// Route::get('cursos/{curso}/{categoria?}', function ($curso,$categoria=null) {
+//     if(is_null($categoria)){
+//         return "Bienvenido a la página del curso de ".$curso;
+//     }else{
+//         return "Bienvenido a la página del curso de ".$curso." de la categoria ".$categoria;
+//     }
+// });
+

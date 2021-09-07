@@ -98,3 +98,8 @@ $clase1 = New ClaseNoAbs;
 $curso2 = New Curso2;
 echo $curso2->getEmpresa()."<br>";
 echo $curso2->saludo()."<br>";
+
+
+$curso3 = New Curso3;
+// echo $curso3->getEmpresa()."<br>";
+echo "curso3:".$curso3->saludo()."<br>";
