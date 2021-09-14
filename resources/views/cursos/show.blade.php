@@ -2,9 +2,14 @@
 @section('title','Cursos|Show')
 @section('content')
 
-<h1>Bienvenido a la página del curso de {{$curso}}</h1>
+<a href="{{route('cursos.edit',$curso)}}">Editar curso</a>
 
-<table><tr><th>Prueba</th></tr>
-    <tr><td>1</td></tr></table>
+<h1>Bienvenido a la página del curso de {{$curso->name}}</h1>
+<h4>{{$curso->category}}</h4>
+<h4>{{$curso->description}}</h4>
+<h4>{{$curso->id}}</h4>
+
+<a href="{{ URL::previous() }}">Volver</a>
+
 @endsection
 

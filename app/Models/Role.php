@@ -13,5 +13,10 @@ class Role extends Model
     public function users(){
         return $this->hasMany(User::class);
     }
+
+    // relación polimórfica uno a muchos
+    public function comments(){
+        return $this->morphMany(Comment::class, 'commentable');
+    }
     
 }
