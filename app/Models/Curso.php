@@ -14,7 +14,6 @@ class Curso extends Model
 
     protected $guarded = [];
 
-
     // protected $table='users';
     public function users(){
         return $this->belongsToMany('App\Models\User');
@@ -25,5 +24,9 @@ class Curso extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
     
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
 }

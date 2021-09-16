@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,27 +26,29 @@ use Illuminate\Support\Facades\Route;
     //     die("Could not connect to the database. Please check your configuration. error:" . $e ); 
     // }
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
-Route::get('cursos', [CursoController::class,'index'])->name('cursos.index');
+Route::view('nosotros', 'nosotros')->name('nosotros');
 
-Route::get('cursos/create',[CursoController::class,'create'])->name('cursos.create');
+// Route::get('cursos', [CursoController::class,'index'])->name('cursos.index');
 
-Route::get('cursos/{curso}',[CursoController::class,'show'])->name('cursos.show');
+// Route::get('cursos/create',[CursoController::class,'create'])->name('cursos.create');
 
-Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store'); 
+// Route::get('cursos/{curso}',[CursoController::class,'show'])->name('cursos.show');
 
-Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('cursos.edit'); 
+// Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store'); 
 
-Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
+// Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('cursos.edit'); 
 
+// Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
 
+// Route::delete('/cursos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
 
-// Route::get('cursos/{curso}/{categoria?}', function ($curso,$categoria=null) {
-//     if(is_null($categoria)){
-//         return "Bienvenido a la página del curso de ".$curso;
-//     }else{
-//         return "Bienvenido a la página del curso de ".$curso." de la categoria ".$categoria;
-//     }
-// });
+Route::get('asignaturas/export', [CursoController::class,'export'])->name('cursos.export');
+
+Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos');
+
+Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
+
+Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
 

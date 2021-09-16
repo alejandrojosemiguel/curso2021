@@ -41,7 +41,7 @@ class StoreCurso extends FormRequest
     public function messages()
     {
         return [            
-            'description.required'=>'Debe ingresar una descripcion del curso',
+            'description.required'=>'Debe ingresar una descripcion del curso en el campo :attribute',
             'description.min'=>'El campo :attribute requiere un minimo de 10 caracteres',
         ];
     }

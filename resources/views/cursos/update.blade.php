@@ -9,11 +9,6 @@
 
     @method('put')
  
-    {{-- <label>
-        ID:
-        <input type="text" name="id" value="{{old('id',$curso->id)}}">
-    </label>
-    <br> --}}
     <label>
         Nombre:
         <input type="text" name="name" value="{{old('name',$curso->name)}}">

@@ -9,11 +9,19 @@
     <title>@yield('title')</title>
     <!-- favicon -->
     <!-- style -->
+    <style>
+        .active{
+            background-color: rgb(98, 149, 184);
+        }
+    </style>
 </head>
 <body>
     <!-- header -->
+    @include('layouts.partials.header')
+    {{-- content  --}}
     @yield('content')
     <!-- footer -->
+    @include('layouts.partials.footer')
     <!-- script -->
 </body>
 </html>

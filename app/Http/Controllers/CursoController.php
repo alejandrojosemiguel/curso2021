@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use App\Http\Requests\StoreCurso;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CursoExport;
 
 class CursoController extends Controller
 {
@@ -27,9 +29,13 @@ class CursoController extends Controller
     
     public function store(StoreCurso $request){
 
+        // return $request->all();
+
         $curso = Curso::create($request->all());
 
-        return redirect()->route('cursos.index',$curso);
+        // return $curso;
+
+        return redirect()->route('cursos.index');
 
     }
     
@@ -44,6 +50,20 @@ class CursoController extends Controller
     public function edit(Curso $curso){
 
         return view('cursos.update',compact('curso'));
-
     }
+
+    public function destroy(Curso $curso){
+
+        // return $curso;
+        
+        $curso->delete();
+ 
+        return redirect()->route('cursos.index');
+    }   
+
+    public function export() 
+    {
+        return Excel::download(new CursoExport, 'Cursos.xlsx');
+    }
+
 }
