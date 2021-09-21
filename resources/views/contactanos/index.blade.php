@@ -39,6 +39,24 @@
         alert('{{session('info')}}');
     </script>
 @endif
+
+@php
+    $color1='red';
+    $color2='yellow';
+    $tipo='alert2';
+@endphp
+
+
+<div class="container mx-auto">
+
+    <x-dynamic-component :component="$tipo" :color="$color1" class="mb-4"> 
+        <x-slot name="title">Discovered Package:</x-slot>
+        Package manifest generated successfully.
+    </x-dynamic-component>
+
+</div>
+
+
 @endsection
 
 

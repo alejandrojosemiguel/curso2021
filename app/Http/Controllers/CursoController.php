@@ -66,4 +66,9 @@ class CursoController extends Controller
         return Excel::download(new CursoExport, 'Cursos.xlsx');
     }
 
+    public function storeExcel() 
+    {
+        return Excel::store(new CursoExport, 'exceles/Cursos.xlsx');
+    }
+
 }

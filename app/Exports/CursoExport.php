@@ -13,7 +13,7 @@ class CursoExport implements FromView
     public function view(): View
     {
         return view('exports.cursos', [
-            'cursos' => Curso::all()
+            'cursos' => Curso::where('id','<','10')->get()
         ]);
     }
 

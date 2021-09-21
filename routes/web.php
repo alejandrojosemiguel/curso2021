@@ -46,9 +46,15 @@ Route::view('nosotros', 'nosotros')->name('nosotros');
 
 Route::get('asignaturas/export', [CursoController::class,'export'])->name('cursos.export');
 
+Route::get('asignaturas/excel', [CursoController::class,'storeExcel'])->name('cursos.excel');
+
 Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos');
 
 Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
 
 Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
