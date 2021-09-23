@@ -48,7 +48,10 @@ Route::get('asignaturas/export', [CursoController::class,'export'])->name('curso
 
 Route::get('asignaturas/excel', [CursoController::class,'storeExcel'])->name('cursos.excel');
 
-Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos');
+Route::resource('asignaturas', CursoController::class)
+        ->middleware(['auth:sanctum', 'verified'])
+        ->parameters(['asignaturas'=>'curso'])
+        ->names('cursos');
 
 Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
 
@@ -58,3 +61,15 @@ Route::post('contactanos', [ContactanosController::class, 'store'])->name('conta
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::get('prueba/mw', function () {
+    // $fecha = New DateTime();
+    // echo auth()->user()->birthday;
+    // echo $fecha->modify('-18 year')->format('Y-m-d');
+    return "accediste correctamente a la ruta";
+})->middleware(['auth:sanctum','age'])->name('prueba.mw');
+
+Route::get('prueba/na', function () {
+    return "No es mayor de edad";
+})->name('prueba.na');

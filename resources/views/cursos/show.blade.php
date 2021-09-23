@@ -1,7 +1,6 @@
 @extends('layouts.template')
 @section('title','Cursos|Show')
 @section('content')
-
 <a href="{{route('cursos.edit',$curso)}}">Editar curso</a>
 
 <h1>Bienvenido a la página del curso de:</h1>

@@ -6,18 +6,19 @@ use App\Models\Curso;
 use App\Http\Requests\StoreCurso;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CursoExport;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CursoController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
         $cursos = Curso::orderBy('id','desc')->paginate();
  
         return view('cursos.index',compact('cursos'));
     }
 
-    public function show(Curso $curso){
-
+    public function show(Request $request, Curso $curso){
         return view('cursos.show',compact('curso'));
     }
 

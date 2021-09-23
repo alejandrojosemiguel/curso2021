@@ -18,6 +18,9 @@
                     </li>
                     <li class="mr-6">
                         <a href="{{route('contactanos.index')}}" class="hover:text-gray-100 {{request()->routeIs('contactanos.*') ? 'text-white' : 'text-gray-400'}}">Contactanos</a>
+                    </li>                    
+                    <li class="mr-6">
+                        <a href="{{route('dashboard')}}" class="hover:text-gray-100 text-gray-400">Dashboard</a>
                     </li>
                 </ul>
             </nav>
