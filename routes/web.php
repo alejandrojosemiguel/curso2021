@@ -4,7 +4,8 @@ use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\QueryController;
+use App\Http\Controllers\ClientController;
 
 
 /*
@@ -73,3 +74,7 @@ Route::get('prueba/mw', function () {
 Route::get('prueba/na', function () {
     return "No es mayor de edad";
 })->name('prueba.na');
+
+
+Route::get('query', [QueryController::class, 'index'])->name('query.index');
+Route::get('client', [ClientController::class, 'index'])->name('client.index');
