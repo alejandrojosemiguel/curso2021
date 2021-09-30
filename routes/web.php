@@ -78,3 +78,8 @@ Route::get('prueba/na', function () {
 
 Route::get('query', [QueryController::class, 'index'])->name('query.index');
 Route::get('client', [ClientController::class, 'index'])->name('client.index');
+
+Route::get('app', function () { 
+    return view('layouts.vueapp'); 
+})->name('vueapp');
+
